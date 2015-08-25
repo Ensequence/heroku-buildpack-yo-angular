@@ -149,13 +149,13 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
 # Install Compass
 status "Installing Compass"
 RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\"")
-export GEM_HOME=$cache_dir/ruby/.gem/ruby/$RUBY_VERSION
+export GEM_HOME=$cache_dir/ruby/.gem/$RUBY_VERSION
 # if [ "$STACK" == "cedar-14" ]; then
 #   export GEM_HOME=$cache_dir/ruby/.gem/ruby/2.2.0
 # else
 #   export GEM_HOME=$cache_dir/ruby/.gem/ruby/1.9.1
 # fi
-#PATH="$GEM_HOME/bin:$PATH"
+PATH="$GEM_HOME/bin:$PATH"
 if [ ! -f $GEM_HOME/bin/compass ]; then
   if test -d $cache_dir/ruby/.gem/$RUBY_VERSION; then
     status "Restoring ruby gems directory from cache"
@@ -166,17 +166,17 @@ if [ ! -f $GEM_HOME/bin/compass ]; then
     echo "GEM_HOME"
     echo $GEM_HOME
     
-    echo "cache_dir"
-    echo $cache_dir
+    #echo "cache_dir"
+    #echo $cache_dir
     
     #PATH="$cache_dir/ruby/.gem/ruby/$RUBY_VERSION/bin:$PATH"
-    PATH="$build_dir/ruby/.gem/ruby/$RUBY_VERSION/bin:$PATH"
+    #PATH="$build_dir/ruby/.gem/ruby/$RUBY_VERSION/bin:$PATH"
     
     #mkdir -p $cache_dir/ruby
-    #HOME="$cache_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
-    #HOME="$cache_dir/ruby" gem install compass --user-install --no-rdoc --no-ri
+    HOME="$cache_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
+    HOME="$cache_dir/ruby" gem install compass --user-install --no-rdoc --no-ri
     #HOME=$build_dir gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
-    HOME=$build_dir gem install compass --user-install --no-rdoc --no-ri
+    #HOME=$build_dir gem install compass --user-install --no-rdoc --no-ri
   else
     mkdir -p $cache_dir/ruby
     HOME="$cache_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
@@ -184,15 +184,15 @@ if [ ! -f $GEM_HOME/bin/compass ]; then
   fi
 fi
 
-# Cache ruby gems
-rm -rf $cache_dir/ruby
-mkdir -p $cache_dir/ruby
+# # Cache ruby gems
+# rm -rf $cache_dir/ruby
+# mkdir -p $cache_dir/ruby
 
-# If app has a gems directory, cache it.
-if test -d $build_dir/.gem; then
-  status "Caching ruby gems directory for future builds"
-  cp -r $build_dir/.gem $cache_dir/ruby
-fi
+# # If app has a gems directory, cache it.
+# if test -d $build_dir/.gem; then
+#   status "Caching ruby gems directory for future builds"
+#   cp -r $build_dir/.gem $cache_dir/ruby
+# fi
 
 # Check and run Bower
 (
