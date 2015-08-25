@@ -167,7 +167,7 @@ if [ ! -f $GEM_HOME/bin/compass ]; then
     echo "cache_dir"
     echo $cache_dir
     
-    PATH="$cache_dir/.gem/ruby/$RUBY_VERSION/bin:$PATH"
+    PATH="$cache_dir/ruby/.gem/ruby/$RUBY_VERSION/bin:$PATH"
     
     #mkdir -p $cache_dir/ruby
     HOME="$cache_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
