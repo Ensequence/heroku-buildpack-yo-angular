@@ -161,6 +161,9 @@ if [ ! -f $GEM_HOME/bin/compass ]; then
     status "Restoring ruby gems directory from cache"
     cp -r $cache_dir/ruby/.gem $build_dir
     
+    echo "build_dir"
+    echo $build_dir
+    
     PATH="$build_dir/ruby/.gem/$RUBY_VERSION/bin:$PATH"
     
     #mkdir -p $cache_dir/ruby
