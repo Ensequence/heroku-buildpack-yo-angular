@@ -169,7 +169,7 @@ echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\
 # Install compass
 status "Installing Compass"
 RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\"")
-export GEM_HOME=$build_dir/.gem/$RUBY_VERSION
+export GEM_HOME=$build_dir/ruby/.gem/$RUBY_VERSION
 PATH="$GEM_HOME/bin:$PATH"
 # Test if gem home exists and matches current ruby version
 if test -d $cache_dir/ruby/.gem/$RUBY_VERSION; then
