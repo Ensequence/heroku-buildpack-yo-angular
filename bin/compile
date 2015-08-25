@@ -167,7 +167,7 @@ if [ ! -f $GEM_HOME/bin/compass ]; then
     # HOME="$cache_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
     # HOME="$cache_dir/ruby" gem install compass --user-install --no-rdoc --no-ri
     HOME=$build_dir gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
-    HOME=$build_dir gem install compass --user-install --no-rdoc --no-ri
+    HOME=$build_dir gem update compass --user-install --no-rdoc --no-ri
   else
     mkdir -p $cache_dir/ruby
     HOME="$cache_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
