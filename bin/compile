@@ -176,10 +176,10 @@ if test -d $cache_dir/ruby/.gem/$RUBY_VERSION; then
   status "Restoring ruby gems directory from cache"
   cp -r $cache_dir/ruby/.gem $build_dir
   HOME="$build_dir/ruby" install sass -v 3.4.1 --user-install --no-rdoc --no-ri
-  HOME="$build_dir/ruby" install compass --user-install --no-rdoc --no-ri 2>&1 | indent
+  HOME="$build_dir/ruby" install compass --no-rdoc --no-ri 2>&1 | indent
 else
   HOME="$build_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
-  HOME="$build_dir/ruby" gem install compass --user-install --no-rdoc --no-ri 2>&1 | indent
+  HOME="$build_dir/ruby" gem install compass --no-rdoc --no-ri 2>&1 | indent
 fi
 
 # Cache ruby gems
