@@ -155,9 +155,9 @@ PATH="$GEM_HOME/bin:$PATH"
 if test -d $cache_dir/ruby/.gem/$RUBY_VERSION; then
   status "Restoring ruby gems directory from cache"
   mkdir -p $build_dir/ruby
-  cp -r $cache_dir/ruby/.gem $build_dir/ruby/.gem
+  cp -r $cache_dir/ruby $build_dir/ruby
   HOME="$build_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
-  HOME="$build_dir/ruby" gem update compass --user-install --no-rdoc --no-ri 2>&1 | indent
+  HOME="$build_dir/ruby" gem install compass --user-install --no-rdoc --no-ri 2>&1 | indent
 else
   HOME="$build_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
   HOME="$build_dir/ruby" gem install compass --user-install --no-rdoc --no-ri 2>&1 | indent
@@ -168,9 +168,9 @@ rm -rf $cache_dir/ruby
 mkdir -p $cache_dir/ruby
 
 # If app has a gems directory, cache it.
-if test -d $build_dir/ruby/.gem; then
+if test -d $build_dir/ruby; then
   status "Caching ruby gems directory for future builds"
-  cp -r $build_dir/ruby/.gem $cache_dir/ruby/.gem
+  cp -r $build_dir/ruby $cache_dir/ruby
 fi
 
 # Check and run Bower
