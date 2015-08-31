@@ -152,7 +152,7 @@ RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RUBY_ENGINE}/#{RbConfig::CON
 export GEM_HOME=$build_dir/ruby/.gem/$RUBY_VERSION
 PATH="$GEM_HOME/bin:$PATH"
 # Test if gem home exists and matches current ruby version
-if test -d $cache_dir/ruby/.gem/$RUBY_VERSION/gems/compass*; then
+if test -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/compass*; then
   status "Restoring ruby gems directory from cache"
   mkdir -p $build_dir/ruby
   cp -r $cache_dir/ruby $build_dir/ruby
