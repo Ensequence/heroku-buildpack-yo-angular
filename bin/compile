@@ -152,12 +152,12 @@ RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RUBY_ENGINE}/#{RbConfig::CON
 export GEM_HOME=$build_dir/ruby/.gem/$RUBY_VERSION
 PATH="$GEM_HOME/bin:$PATH"
 # Test if gem home exists and matches current ruby version
-if test -d $cache_dir/ruby/.gem/$RUBY_VERSION; then
+if test -d $cache_dir/ruby/.gem/$RUBY_VERSION/gems/compass*; then
   status "Restoring ruby gems directory from cache"
   mkdir -p $build_dir/ruby
   cp -r $cache_dir/ruby $build_dir/ruby
   HOME="$build_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
-  HOME="$build_dir/ruby" gem install compass --user-install --no-rdoc --no-ri 2>&1 | indent
+  HOME="$build_dir/ruby" gem update compass --user-install --no-rdoc --no-ri 2>&1 | indent
 else
   HOME="$build_dir/ruby" gem install sass -v 3.4.1 --user-install --no-rdoc --no-ri
   HOME="$build_dir/ruby" gem install compass --user-install --no-rdoc --no-ri 2>&1 | indent
