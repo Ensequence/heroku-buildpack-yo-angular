@@ -166,7 +166,7 @@ do
     fi
 done
 
-if test -d "$FOUND"; then
+if test -d $FOUND; then
   status "Restoring ruby gems directory from cache"
   mkdir -p $build_dir/ruby
   cp -r $cache_dir/ruby $build_dir/ruby
