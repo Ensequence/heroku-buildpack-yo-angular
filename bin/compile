@@ -146,13 +146,27 @@ status "Building runtime environment"
 mkdir -p $build_dir/.profile.d
 echo "export PATH=\"\$HOME/vendor/node/bin:\$HOME/bin:\$HOME/node_modules/.bin:\$PATH\";" > $build_dir/.profile.d/nodejs.sh
 
+
+
+
 # Install compass
 status "Installing Compass"
 RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RUBY_ENGINE}/#{RbConfig::CONFIG['ruby_version']}\"")
 export GEM_HOME=$build_dir/ruby/.gem/$RUBY_VERSION
 PATH="$GEM_HOME/bin:$PATH"
 # Test if gem home exists and matches current ruby version
-if test -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/compass*; then
+
+FOUND=
+for DIR in $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/compass*
+do
+    if [ -d "$DIR" ]
+        then
+            FOUND="$DIR"
+            break
+    fi
+done
+
+if test -d "$FOUND"; then
   status "Restoring ruby gems directory from cache"
   mkdir -p $build_dir/ruby
   cp -r $cache_dir/ruby $build_dir/ruby
