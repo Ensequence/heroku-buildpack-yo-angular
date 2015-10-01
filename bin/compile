@@ -155,6 +155,9 @@ RUBY_VERSION=$(ruby -e "require 'rbconfig';puts \"#{RUBY_ENGINE}/#{RbConfig::CON
 export GEM_HOME=$build_dir/ruby/.gem/$RUBY_VERSION
 PATH="$GEM_HOME/bin:$PATH"
 # Test if gem home exists and matches current ruby version
+echo "========================="
+echo ls $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/
+echo "========================="
 
 FOUND=
 for DIR in $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/compass*
@@ -162,6 +165,7 @@ do
     if [ -d "$DIR" ]
         then
             FOUND="$DIR"
+            echo $FOUND
             break
     fi
 done
