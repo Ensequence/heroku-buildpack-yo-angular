@@ -192,18 +192,18 @@ echo $cache_dir
 
 echo "========================="
 
-FOUND=
-for DIR in $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/compass*
-do
-    if [ -d "$DIR" ]
-        then
-            FOUND="$DIR"
-            break
-    fi
-done
-
-echo "========================="
-
+FOUND=/app/tmp/cache/ruby
+#for DIR in $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/compass*
+#do
+#    if [ -d "$DIR" ]
+#        then
+#            FOUND="$DIR"
+#            break
+#    fi
+#done
+#
+#echo "========================="
+#
 echo "FOUND!!!!!!"
 echo "Found is " $FOUND
 echo "Found 2is  $FOUND"
