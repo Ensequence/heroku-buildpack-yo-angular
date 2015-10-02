@@ -172,8 +172,8 @@ echo `ls -d $cache_dir/ruby/.gem/ruby/*`
 
 echo "========================="
 
-echo ls -d $cache_dir/ruby/*
-echo `ls -d $cache_dir/ruby/*`
+echo ls $cache_dir/ruby/*
+echo `ls $cache_dir/ruby/`
 
 echo "========================="
 
