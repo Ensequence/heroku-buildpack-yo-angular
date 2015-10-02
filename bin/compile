@@ -173,7 +173,12 @@ echo `ls -d $cache_dir/ruby/.gem/ruby/*`
 echo "========================="
 
 echo ls $cache_dir/ruby/*
-echo `ls $cache_dir/ruby/`
+echo `ls $cache_dir/ruby/*`
+
+echo "========================="
+
+echo ls $cache_dir/ruby/ruby
+echo `ls $cache_dir/ruby/ruby`
 
 echo "========================="
 
@@ -201,6 +206,7 @@ echo "========================="
 
 echo "FOUND!!!!!!"
 echo "Found is " $FOUND
+echo "Found 2is  $FOUND"
 
 echo "========================="
 
