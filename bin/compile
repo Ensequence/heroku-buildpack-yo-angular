@@ -156,24 +156,30 @@ export GEM_HOME=$build_dir/ruby/.gem/$RUBY_VERSION
 PATH="$GEM_HOME/bin:$PATH"
 # Test if gem home exists and matches current ruby version
 echo "========================="
+
 echo ls -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/*
 echo `ls -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/*`
+
 echo "========================="
 
 echo ls -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/*
 echo `ls -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/*`
+
 echo "========================="
 
 echo ls -d $cache_dir/ruby/.gem/ruby/*
 echo `ls -d $cache_dir/ruby/.gem/ruby/*`
+
 echo "========================="
 
-echo ls -d $cache_dir
-echo `ls -d $cache_dir`
+echo ls -d $cache_dir/*
+echo `ls -d $cache_dir/*`
+
 echo "========================="
 
+echo "$cache_dir"
 echo $cache_dir
-echo `$cache_dir`
+
 echo "========================="
 
 FOUND=
@@ -182,11 +188,16 @@ do
     if [ -d "$DIR" ]
         then
             FOUND="$DIR"
-            echo "Found is $FOUND"
-            echo "Found is" $FOUND
             break
     fi
 done
+
+echo "========================="
+
+echo "FOUND!!!!!!"
+echo "Found is " $FOUND
+
+echo "========================="
 
 if test -d $FOUND; then
   status "Restoring ruby gems directory from cache"
