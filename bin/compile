@@ -168,13 +168,22 @@ echo ls -d $cache_dir/ruby/.gem/ruby/*
 echo `ls -d $cache_dir/ruby/.gem/ruby/*`
 echo "========================="
 
+echo ls -d $cache_dir
+echo `ls -d $cache_dir`
+echo "========================="
+
+echo $cache_dir
+echo `$cache_dir`
+echo "========================="
+
 FOUND=
 for DIR in $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/compass*
 do
     if [ -d "$DIR" ]
         then
             FOUND="$DIR"
-            echo $FOUND
+            echo "Found is $FOUND"
+            echo "Found is" $FOUND
             break
     fi
 done
