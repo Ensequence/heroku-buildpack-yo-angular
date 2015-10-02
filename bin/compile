@@ -156,7 +156,16 @@ export GEM_HOME=$build_dir/ruby/.gem/$RUBY_VERSION
 PATH="$GEM_HOME/bin:$PATH"
 # Test if gem home exists and matches current ruby version
 echo "========================="
-echo `ls -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/`
+echo ls -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/*
+echo `ls -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/gems/*`
+echo "========================="
+
+echo ls -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/*
+echo `ls -d $cache_dir/ruby/.gem/ruby/$RUBY_VERSION/*`
+echo "========================="
+
+echo ls -d $cache_dir/ruby/.gem/ruby/*
+echo `ls -d $cache_dir/ruby/.gem/ruby/*`
 echo "========================="
 
 FOUND=
