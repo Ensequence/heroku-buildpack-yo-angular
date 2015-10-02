@@ -193,7 +193,7 @@ echo $cache_dir
 echo "========================="
 
 FOUND=
-for DIR in ~/ruby/.gem/ruby/$RUBY_VERSION/gems/compass*
+for DIR in ~/ruby/.gem/ruby/$RUBY_VERSION/cache/compass*
 do
    if [ -d "$DIR" ]
        then
